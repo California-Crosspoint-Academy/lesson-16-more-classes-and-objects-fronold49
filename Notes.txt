@@ -1,0 +1,35 @@
+Lesson 16: Simplified Notes
+
+Access Control (Private)
+
+- Private items (methods or variables) can only be used from *inside* the class where they are defined.
+- Example: You cannot access a `private double cost` from outside the `Recipe` class.
+
+Creating Objects
+
+- Objects are usually declared and created (instantiated) on one line.
+- You can also create objects without giving them a local name (these are anonymous objects), often when passing them into a method.
+
+Object References and Equality
+
+- Setting Equal (`cir2 = cir1`): Both names now point to the same exact object in memory. There is only one object.
+- Checking Identity (`==`):
+    - The `==` operator checks if two object names point to the same object.
+    - If you create two separate objects using `new`, even if their content is identical (e.g., both radius 11), `==` returns `false` because they are separate objects.
+- Checking Content (`.equals()`):
+    - By default, `.equals()` works like `==` (checking for the same object reference).
+    - If the programmer *overrides* this method, `.equals()` will compare the contents of the objects (like their radii).
+
+Strings are Special
+
+- Rule: Use `.equals()` or `.compareTo()` to compare what is *inside* a String, not the `==` operator.
+- String literals (constants like `"Hello"`) are saved in a special area called the String constant pool. This means `==` might sometimes return `true` for two separate names if they reference the same constant in the pool.
+- Strings created with `new String()` are stored separately, making `==` return `false`.
+
+Other Rules
+
+- Reassignment: An object's name is just a reference (a pointer). You can easily make it point to a totally new object.
+- Default Access: If you leave off `public` or `private`, the default is `Package` access, which usually acts like `public` for typical student work.
+- Initialization:
+    - Numeric state variables (instance fields) are automatically set to 0 if you don't give them a value.
+    - Variables declared inside the body of a method are *not* automatically initialized, and trying to use them results in a compile error.
